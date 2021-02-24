@@ -18,3 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 
 ## How to run the app
 
+1. Change the flutter channel to stable.
+> flutter channel stable
+
+2. Upgrade flutter sdk.
+> flutter upgrade
+
+3. Run the application using chrome or Edge browser.
