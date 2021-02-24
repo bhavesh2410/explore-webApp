@@ -1,20 +1,81 @@
+import 'package:explore/widgets/bottom_bar_column.dart';
+import 'package:explore/widgets/info_text.dart';
+import 'package:explore/widgets/responsive_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
-import 'bottom_bar_column.dart';
 
 class BottomBar extends StatelessWidget {
+  const BottomBar({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey[900],
       padding: EdgeInsets.all(30),
-      child: Column(
+      color: Colors.blueGrey[900],
+      child: ResponsiveWidget.isSmallScreen(context)
+          ? Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    BottomBarColumn(
+                      heading: 'ABOUT',
+                      s1: 'Contact Us',
+                      s2: 'About Us',
+                      s3: 'Careers',
+                    ),
+                    BottomBarColumn(
+                      heading: 'HELP',
+                      s1: 'Payment',
+                      s2: 'Cancellation',
+                      s3: 'FAQ',
+                    ),
+                    BottomBarColumn(
+                      heading: 'SOCIAL',
+                      s1: 'Twitter',
+                      s2: 'Facebook',
+                      s3: 'YouTube',
+                    ),
+                  ],
+                ),
+                Container(
+                  color: Colors.blueGrey,
+                  width: double.maxFinite,
+                  height: 1,
+                ),
+                SizedBox(height: 20),
+                InfoText(
+                  type: 'Email',
+                  text: 'explore125@gmail.com',
+                ),
+                SizedBox(height: 5),
+                InfoText(
+                  type: 'Address',
+                  text: 'xyz, abc road, mno, PQ - 123456',
+                ),
+                SizedBox(height: 20),
+                Container(
+                  color: Colors.blueGrey,
+                  width: double.maxFinite,
+                  height: 1,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Copyright © 2020 | EXPLORE',
+                  style: TextStyle(
+                    color: Colors.blueGrey[300],
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            )
+          : Column(
         children: [
           Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BottomBarColumn(
                 heading: 'ABOUT',
@@ -22,99 +83,55 @@ class BottomBar extends StatelessWidget {
                 s2: 'About Us',
                 s3: 'Careers',
               ),
-              SizedBox(width: 20,),
               BottomBarColumn(
                 heading: 'HELP',
                 s1: 'Payment',
                 s2: 'Cancellation',
                 s3: 'FAQ',
               ),
-              SizedBox(width: 20,),
               BottomBarColumn(
                 heading: 'SOCIAL',
                 s1: 'Twitter',
                 s2: 'Facebook',
-                s3: 'Youtube',
+                s3: 'YouTube',
               ),
-              SizedBox(width: 20,),
-              // Container(
-              //   height: 80,
-              //   width: 1,
-              //   color: Colors.blueGrey[800],
-              // ),
-              // SizedBox(
-              //   width: 20,
-              // ),
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       mainAxisSize: MainAxisSize.min,
-              //       crossAxisAlignment: CrossAxisAlignment.start,
-              //       children: [
-              //         Text(
-              //           'E-mail: ',
-              //           style: TextStyle(
-              //               color: Colors.blueGrey[300],
-              //               fontSize: 16
-              //           ),
-              //         ),
-              //         Flexible(
-              //           child: Text(
-              //             'abc123@explore.com',
-              //             style: TextStyle(
-              //                 color: Colors.blueGrey[100],
-              //                 fontSize: 16
-              //             ),
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //     SizedBox(height: 5,),
-              //     Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       mainAxisSize: MainAxisSize.min,
-              //       crossAxisAlignment: CrossAxisAlignment.start,
-              //       children: [
-              //         Text(
-              //           'Address: ',
-              //           style: TextStyle(
-              //               color: Colors.blueGrey[300],
-              //               fontSize: 16
-              //           ),
-              //         ),
-              //         Flexible(
-              //           child: Text(
-              //             '123, ABR Road, XYZ, PQ - 56789',
-              //             overflow: TextOverflow.ellipsis,
-              //             maxLines: 3,
-              //             style: TextStyle(
-              //                 color: Colors.blueGrey[100],
-              //                 fontSize: 16
-              //             ),
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //   ],
-              // ),
+              Container(
+                color: Colors.blueGrey,
+                width: 2,
+                height: 150,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InfoText(
+                    type: 'Email',
+                    text: 'explore125@gmail.com',
+                  ),
+                  SizedBox(height: 5),
+                  InfoText(
+                    type: 'Address',
+                    text: 'xyz, abc road, mno, PQ - 123456',
+                  ),
+                ],
+              ),
             ],
           ),
-          SizedBox(height: 20,),
-          Container(
-            width: double.maxFinite,
-            height: 1,
-            color: Colors.blueGrey,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              color: Colors.blueGrey,
+              width: double.maxFinite,
+              height: 1,
+            ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 20),
           Text(
-            'Copyright © 2021 | EXPLORE',
+            'Copyright © 2020 | EXPLORE',
             style: TextStyle(
               color: Colors.blueGrey[300],
-              fontSize: 14
+              fontSize: 14,
             ),
-          )
+          ),
         ],
       ),
     );
